@@ -5,7 +5,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main","FB_PersonModel" ]
+    branches: [ "main","FB_PersonDAO" ]
   pull_request:
     branches: [ "main" ]
 
