@@ -2,6 +2,7 @@ package com.example.person.Model;
 
 
 import javax.persistence.*;
+//import javax.persistence.Table;
 
 @Entity
 @Table(name = "Persons")
@@ -33,11 +34,11 @@ public class Person {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
