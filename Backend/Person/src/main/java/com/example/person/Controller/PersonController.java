@@ -51,7 +51,7 @@ public class PersonController {
 
     @PostMapping(consumes = "application/json",produces = "application/json")
     public ResponseEntity<String> createPerson(@RequestBody Person person){
-        System.out.println("got here");
+
         boolean isCreated;
 
         isCreated = personDAO.createPerson(person);
