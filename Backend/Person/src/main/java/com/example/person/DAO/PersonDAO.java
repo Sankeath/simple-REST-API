@@ -1,6 +1,7 @@
 package com.example.person.DAO;
 
 import com.example.person.Model.Person;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.example.person.Repository.PersonRepository;
 
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public class PersonDAO{
-
+    @Autowired
     private PersonRepository personRepository;
 
     public List<Person> getPersonList(){
@@ -32,6 +33,7 @@ public class PersonDAO{
             toUpdate.get().setName(person.getName());
             toUpdate.get().setPostCode(person.getPostCode());
             toUpdate.get().setPhoneNo(person.getPhoneNo());
+            personRepository.save(toUpdate.get());
             returnStatement = true;
         }
         return returnStatement;
@@ -43,7 +45,17 @@ public class PersonDAO{
 
     }
 
-    public void createPerson(Person person){
-        personRepository.save(person);
+    public boolean createPerson(Person person){
+        System.out.println(person.toString());
+        boolean isCreated =true;
+        try {
+            personRepository.save(person);
+        }
+        catch (Exception e){
+            isCreated = false;
+
+        }
+
+        return isCreated;
     }
 }
