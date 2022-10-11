@@ -1,5 +1,5 @@
 package com.example.person.Model;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 //import javax.persistence.Table;
@@ -8,22 +8,46 @@ import javax.persistence.*;
 @Table(name = "Persons")
 public class Person {
 
+
+
     @Id
     private Long id;
-    @Column (name = "Name")
+    @Column (name = "person_name")
+
     private String name;
-    @Column (name = "Address")
+    @Column (name = "address")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private String address;
-    @Column (name = "PostCode")
+    @Column (name = "postCode")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private String postCode;
-    @Column (name = "Age")
+    @Column (name = "age")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private String age;
-    @Column (name = "Job")
+    @Column (name = "job")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private String job;
-    @Column (name = "Email")
+    @Column (name = "email")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private String email;
-    @Column (name = "PhoneNo")
+    @Column (name = "phoneNo")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private String phoneNo;
+
+    public Person(Long id,String name,String address,String postCode,String age,String job,String email,String phoneNo){
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.postCode = postCode;
+        this.age = age;
+        this.job = job;
+        this.email = email;
+        this.phoneNo = phoneNo;
+    }
+
+    public Person() {
+
+    }
 
     public Long getId() {
         return id;
@@ -87,5 +111,19 @@ public class Person {
 
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
+    }
+
+    @Override
+    public String toString() {
+        return "Person {" +
+                "id="+id+
+                "name="+name+
+                "address="+address+
+                "postcode="+postCode+
+                "age="+age+
+                "job="+job+
+                "email="+email+
+                "phoneNo="+phoneNo+"}";
+
     }
 }

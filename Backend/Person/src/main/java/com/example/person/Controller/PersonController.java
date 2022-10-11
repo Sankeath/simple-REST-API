@@ -26,7 +26,7 @@ public class PersonController {
 
     //Get person by id
     @GetMapping(path = "/{id}", produces = "application/json")
-    public Person getPersonList(@PathVariable Long id){
+    public Person getPerson(@PathVariable Long id){
         Optional<Person> person = personDAO.getPerson(id);
         return person.get();
     }
@@ -51,8 +51,17 @@ public class PersonController {
 
     @PostMapping(consumes = "application/json",produces = "application/json")
     public ResponseEntity<String> createPerson(@RequestBody Person person){
-        personDAO.createPerson(person);
-        return new ResponseEntity<>("Person created",HttpStatus.OK);
+        System.out.println("got here");
+        boolean isCreated;
+
+        isCreated = personDAO.createPerson(person);
+        if (isCreated){
+            return new ResponseEntity<>("Person created",HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("Person not created",HttpStatus.NOT_FOUND);
+        }
+
     }
 
 }
