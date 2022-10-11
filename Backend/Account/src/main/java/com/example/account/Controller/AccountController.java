@@ -60,7 +60,7 @@ public class AccountController {
         if (isCreated) {
             return new ResponseEntity<>("Account created", HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("Account not created", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Account not created", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
