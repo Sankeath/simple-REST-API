@@ -1,6 +1,6 @@
-drop schema challengetwo;
-create schema challengetwo;
-use challengetwo;
+drop schema database;
+create schema database;
+use database;
 
 CREATE TABLE Persons (
 	id bigint UNIQUE PRIMARY KEY,
